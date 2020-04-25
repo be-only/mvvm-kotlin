@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.bedarmawan.basemvvm.ui.home.HomeViewModel" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{()->viewModel.showToast(context)}"
+            bind:ignore="UseCompoundDrawables">
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                bind:loadImage="@{viewModel.imageUrl}"
+                bind:ignore="ContentDescription" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/colorPrimary"
+                mutableText="@{viewModel.sampleText}"/>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        applicationId "com.bedarmawan.basemvvm"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // Support Design
+    implementation 'com.google.android.material:material:1.1.0'
+
+    // RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    // Constraint Layout
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    // LiveData & ViewModel
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    // Room
+    implementation 'androidx.room:room-runtime:2.2.5'
+    kapt 'androidx.room:room-compiler:2.2.5'
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+
+    // Dagger 2
+    implementation "com.google.dagger:dagger:$dagger2_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger2_version"
+    compileOnly "org.glassfish:javax.annotation:3.1.1"
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxjava:2.2.8"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // Indicator
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
+
+    // RoundedImageView
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    // Justified Textview
+    implementation 'com.codesgood:justifiedtextview:1.1.0'
+
+    // Circular Imageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // Rounded Progressbar
+    implementation 'com.akexorcist:round-corner-progress-bar:2.1.0'
+}
